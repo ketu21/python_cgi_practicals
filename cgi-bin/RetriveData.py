@@ -16,20 +16,20 @@ form = cgi.FieldStorage()
 
 # Get data from fields from the html form
 studentId = int(form.getvalue('student_id'))
-studentName = form.getvalue('student_name')
-studentCity = form.getvalue('student_city')
-studentDate = str(form.getvalue('student_date'))
+
 
 if studentId != 0:
     # Insert query
-    query = "INSERT INTO Student" \
-            "(studentId,studentName,studentCity,studentBirthDate) " \
-            "VALUES ('%d','%s','%s','%s' )" \
-            % (studentId, studentName, studentCity, studentDate)
+    query = "SELECT * FROM Student WHERE studentId=%d" % studentId
 
     db = DataBase()
     cursor = db.cursor()
     cursor.execute(query)
+    values = cursor.fetchone()  # fenction to fetch the values of the query result stored in cursor
+    studentName = values[1]
+    studentCity = values[2]
+    studentDate = values[3]
+
     db.commit()
     db.close()
 
@@ -39,7 +39,10 @@ if studentId != 0:
     print("<title>Insert Operation</title>")
     print("</head>")
     print("<body>")
-    print("<h2>Record Inserted</h2>")
+    print("<h2>%d</h2>" % studentId)
+    print("<h2>%s</h2>" % studentName)
+    print("<h2>%s</h2>" % studentCity)
+    print("<h2>%s</h2>" % studentDate)
     print("</body>")
     print("</html>")
 else:
@@ -49,6 +52,6 @@ else:
     print("<title>Insert Operation</title>")
     print("</head>")
     print("<body>")
-    print("<h2>Insert Error Try again</h2>")
+    print("<h2>No Student Id Entered</h2>")
     print("</body>")
     print("</html>")
