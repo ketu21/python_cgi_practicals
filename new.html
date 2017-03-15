@@ -2,18 +2,10 @@
 <html lang="en">
 <head>
    <form action="cgi-bin/script.py" method="post">
-      Student Id: &nbsp;&nbsp;&nbsp;<input type="number" name="student_id" value="0">  <br />
-      <br/>
-      Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="student_name" /><br/>
-      <br/>
-      City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="student_city" /><br/>
-      <br/>
-      Birth Date: &nbsp;&nbsp;&nbsp;<input type="date" name="student_date" /><br/>
-      <br/>
-      <input type="submit" name="action" value="Insert" />
+      Sid: <input type="number" name="Sid">  <br />
+      Sname: <input type="text" name="Sname" /><br/>
+      <input type="submit" name="action" value="Submit" />
       <input type="submit" name="action" value="Delete" formaction="cgi-bin/delete.py"/>
-      <input type="submit" name="action" value="Search" formaction="cgi-bin/RetriveData.py"/>
-      <input type="submit" name="action" value="Update" formaction="cgi-bin/update.py"/>
    </form>
 </head>
 <body>
