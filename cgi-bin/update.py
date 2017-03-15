@@ -20,14 +20,14 @@ studentName = form.getvalue('student_name')
 studentCity = form.getvalue('student_city')
 studentDate = str(form.getvalue('student_date'))
 
+
 if studentId != 0:
     # Insert query
-    query = "INSERT INTO Student" \
-            "(studentId,studentName,studentCity,studentBirthDate) " \
-            "VALUES ('%d','%s','%s','%s' )" \
-            % (studentId, studentName, studentCity, studentDate)
+    query = "UPDATE Student SET " \
+            "studentName='%s',studentCity='%s',studentBirthDate='%s' WHERE studentId=%d" \
+            % (studentName, studentCity, studentDate, studentId)
 
-    db = DataBase()
+    db = DataBase()  # connecting to databse
     cursor = db.cursor()
     cursor.execute(query)
     db.commit()
@@ -49,6 +49,6 @@ else:
     print("<title>Insert Operation</title>")
     print("</head>")
     print("<body>")
-    print("<h2>Insert Error Try again</h2>")
+    print("<h2>No Student Id Entered</h2>")
     print("</body>")
     print("</html>")
