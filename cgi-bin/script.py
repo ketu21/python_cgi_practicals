@@ -9,6 +9,18 @@ def DataBase():
     '''Function to handle database connection '''
     return mysql.connector.connect(user="root", password="pramukhraj", host="localhost", database="sys")
 
+def OutputResult(info):
+    '''Function to print the html form after the script execution'''
+    print("Content-type:text/html\r\n\r\n")
+    print("<html>")
+    print("<head>")
+    print("<title>Insert Operation</title>")
+    print("</head>")
+    print("<body>")
+    print("<h2>%s</h2>" % info)
+    print("</body>")
+    print("</html>")
+
 
 cgitb.enable()
 # Create instance of FieldStorage
@@ -33,22 +45,6 @@ if studentId != 0:
     db.commit()
     db.close()
 
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Insert Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>Record Inserted</h2>")
-    print("</body>")
-    print("</html>")
+    OutputResult("Record Inserted")
 else:
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Insert Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>Insert Error Try again</h2>")
-    print("</body>")
-    print("</html>")
+    OutputResult("Error inserting data")

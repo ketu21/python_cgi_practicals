@@ -10,6 +10,25 @@ def DataBase():
     return mysql.connector.connect(user="root", password="pramukhraj", host="localhost", database="sys")
 
 
+#Function that contains multiple parameters:
+def OutputResult(studentId, studentName, studentCity, studentDate):
+    """Function to print the html form after the script execution"""
+    print("Content-type:text/html\r\n\r\n")
+    print("<html>")
+    print("<head>")
+    print("<title>Insert Operation</title>")
+    print("<form action="+'"update.py"'+" method="+'"post"'+">")
+    print("Student Id: &nbsp;&nbsp;&nbsp;<input type="+'"number"'+" name ="+'"student_id"'+" value=",studentId,"><br />")
+    print("Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="+'"text"'+" name ="+'"student_name"'+" value="+studentName+"><br/>")
+    print("City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="+'"text"'+" name ="+'"student_city"'+" value="+studentCity+"><br/>")
+    print("Birth Date: &nbsp;&nbsp;&nbsp;<input type=" + '"date"' + "name=" + '"student_date"' + " value=" +studentDate+ "><br/>")
+    print("<input type="+'"submit"'+"name="+'"action"'+" value="+'"Save"'+" />")
+    print("<input type=" + '"button"' + "name=" + '"action"' + " value=" + '"Go Back"' + "formaction="+'"http://new.html"'+" />")
+    print("</form>")
+    print("<body></body>")
+    print("</html>")
+
+
 cgitb.enable()
 # Create instance of FieldStorage
 form = cgi.FieldStorage()
@@ -32,26 +51,6 @@ if studentId != 0:
 
     db.commit()
     db.close()
-
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Insert Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>%d</h2>" % studentId)
-    print("<h2>%s</h2>" % studentName)
-    print("<h2>%s</h2>" % studentCity)
-    print("<h2>%s</h2>" % studentDate)
-    print("</body>")
-    print("</html>")
+    OutputResult(studentId,studentName,studentCity,studentDate)
 else:
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Insert Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>No Student Id Entered</h2>")
-    print("</body>")
-    print("</html>")
+    OutputResult(0,"NULL","NULL","NULL")

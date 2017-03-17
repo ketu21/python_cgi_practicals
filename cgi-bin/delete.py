@@ -9,6 +9,19 @@ def DataBase():
     return mysql.connector.connect(user="root", password="pramukhraj", host="localhost", database="sys")
 
 
+def OutputResult(info):
+    '''Function to print the html form after the script execution'''
+    print("Content-type:text/html\r\n\r\n")
+    print("<html>")
+    print("<head>")
+    print("<title>Insert Operation</title>")
+    print("</head>")
+    print("<body>")
+    print("<h2>%s</h2>" % info)
+    print("</body>")
+    print("</html>")
+
+
 cgitb.enable()
 # Create instance of FieldStorage
 form = cgi.FieldStorage()
@@ -26,23 +39,7 @@ if student_id !=0:
     db.commit()
     db.close()
 
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Delete Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>Record Deleted</h2>")
-    print("</body>")
-    print("</html>")
+    OutputResult("Record Deleted")
 
 else:
-    print("Content-type:text/html\r\n\r\n")
-    print("<html>")
-    print("<head>")
-    print("<title>Insert Operation</title>")
-    print("</head>")
-    print("<body>")
-    print("<h2>No Student Id Entered</h2>")
-    print("</body>")
-    print("</html>")
+    OutputResult("No student Id entered")
