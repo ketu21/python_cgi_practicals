@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30b13169-1f3f-4c2f-a460-d2c2949597d5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cgi-bin/newpy.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cgi-bin/RetriveData.py" afterPath="$PROJECT_DIR$/cgi-bin/RetriveData.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cgi-bin/delete.py" afterPath="$PROJECT_DIR$/cgi-bin/delete.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cgi-bin/script.py" afterPath="$PROJECT_DIR$/cgi-bin/script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new.html" afterPath="$PROJECT_DIR$/new.html" />
-    </list>
+    <list default="true" id="30b13169-1f3f-4c2f-a460-d2c2949597d5" name="Default" comment="" />
     <ignored path="python_cgi_practicals.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
